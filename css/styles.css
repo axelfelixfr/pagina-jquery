@@ -1,0 +1,804 @@
+/* Generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Slab', serif;
+  font-size: 16px; /* Los demás tamaños se manejaran con la medida rem, esto sirve para cambiar el tamaño de letra del sitio solo con cambiar esta propiedad */
+}
+
+.contenedor {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto; /* Centramos el contenedor */
+}
+
+.titulo-seccion {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.titulo-seccion h2 {
+  color: #F5C567;
+  font-size: 3.125rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.titulo-seccion p {
+  color: #979797;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Boton Volver Arriba */
+.btn-volver-arriba {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 30%;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99999;
+  margin-right: -60px;
+  transition: all 0.4s ease;
+}
+
+.btn-volver-arriba a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 30%;
+  text-align: center;
+}
+
+.btn-volver-arriba a i {
+  font-size: 1rem;
+  color: #fff;
+  line-height: 40px;
+}
+
+/* --------- Encabezado --------- */
+.menu-bar-pc {
+  width: 100%;
+  min-height: 68px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0 36px;
+  background: transparent; /* Le damos un color transparente */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Con space-between acomoda los elementos a la izquierda, centro y derecha */
+  align-items: center;
+  position: relative;
+  z-index: 100;
+}
+
+.logo {
+  display: inline-block;
+  width: 50px;
+}
+
+.logo img {
+  width: 100%;
+  vertical-align: top;
+}
+
+.menu-principal a,
+.top-redes a {
+  display: inline-block;
+  padding: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  line-height: 1.5em;
+  transition: all 0.3s ease;
+}
+
+.menu-principal a:last-child,
+.top-redes a:last-child {
+  padding-right: 0;
+}
+
+.top-redes a i {
+  font-size: 1rem;
+}
+
+.menu-principal a:hover,
+.top-redes a:hover {
+  color: #F5C567;
+}
+
+/* Menú fixed */
+.fixed-header {
+  width: 100%;
+  min-height: 68px;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+  padding: 0 36px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Con space-between acomoda los elementos a la izquierda, centro y derecha */
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  transition: all 0.4s ease;
+  margin-top: -68px;
+}
+
+.fixed-header .menu-principal a,
+.fixed-header .top-redes a {
+  color: #444444;
+}
+
+.fixed-header .menu-principal a:hover,
+.top-redes a:hover {
+  color: #F5C567;
+}
+
+/* Menú movil */
+.menu-mobile {
+  display: none;
+}
+
+/* --------- Main --------- */
+/* Banner principal */
+.main {
+  width: 100%;
+  margin-top: -68px; /* Le damos -68px para que este encima del header el banner */
+}
+
+.main .banner-principal {
+  width: 100%;
+  position: relative;
+}
+
+.main .banner-principal .banner {
+  width: 100%;
+  /* height: 100vh; El 100vh le da la altura de la pantalla completa */
+  background-image: url("../img/banner/chichen_itza.jpg"); /* Colocamos la imagen de fondo */
+  background-repeat: no-repeat;
+  background-position: center; /* Posicionamos la imagen al centro */
+  background-size: cover;
+  background-attachment: fixed; /* Efecto parallax con CSS */
+}
+
+.main .banner-principal .texto-banner {
+  display: inline-block;
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.main .banner-principal .texto-banner h2 {
+  font-weight: 300;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.main .banner-principal .texto-banner h1 {
+  font-size: 6.0625rem;
+  font-weight: 700;
+  line-height: 90px;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.main .banner-principal .texto-banner a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: #F5C567;
+  color: #fff;
+  transition: all 0.7s ease;
+}
+
+.main .banner-principal .texto-banner a:hover {
+  background-color: #fff;
+  color: #F5C567;
+}
+
+/* Proyectos */
+.main .proyectos {
+  background-color: #f3f4fa; /* Le damos un color gris al fondo de la sección proyectos */
+  padding: 108px 0 54px 0;
+}
+
+.main .proyectos .galeria-proyectos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* La propiedad wrap sirve para que se coloquen en otro fila los elementos que ya no caben en el contenedor */
+  justify-content: space-between;
+  padding-bottom: 34px;
+  border-bottom: 1px solid #ccc;
+}
+
+.main .proyectos .galeria-proyectos .proyecto {
+  width: 32%;
+  margin-bottom: 2%;
+  cursor: pointer;
+}
+
+.main .proyectos .galeria-proyectos .proyecto img {
+  width: 100%;
+  vertical-align: top;
+}
+
+
+/* Modal fotos proyectos */
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  width: 90%;
+  max-width: 600px;
+}
+
+.modal .btn-cerrar {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  top: 20px;
+  right: 20px;
+  background-color: #F5C567;
+  text-align: center;
+  cursor: pointer;
+}
+
+.modal .btn-cerrar i {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 50px;
+}
+
+/* Acerca de */
+.main .acerca-de {
+  background-color: #f3f4fa;
+}
+
+.main .acerca-de .contenedor {
+  display: flex; /* Le damos un display flex para que se puedan separar las cajas con un width con porcentaje */
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.main .acerca-de .contenedor .titulo-seccion {
+  width: 33.33%;
+  text-align: left;
+}
+
+.main .acerca-de .contenedor .titulo-seccion h2 {
+  margin-bottom: 0;
+  font-size: 2.9rem;
+}
+.main .acerca-de .texto-acerca-de {
+  width: 66.66%;
+  text-align: left;
+}
+
+.main .acerca-de .contenedor .titulo-seccion p {
+  color: #979797;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Slider */
+.main .contenedor-slider {
+  width: 100%;
+  overflow: hidden; /* El overflow hidden es para ocultar todo el espacio demás que tenga el carrousel */
+  background-color: #f3f4fa;
+  padding: 52px 0;
+  position: relative;
+}
+
+.main .contenedor-slider .slider {
+  width: 400%; /* El tamaño es del 400% porque son 4 imagenes que ocuparan el 100% entonces debemos darle el tamaño correcto */
+  display: flex;
+}
+
+.main .contenedor-slider .slider .slide {
+  width: 15%;
+  max-width: 950px;
+  margin-right: 0.7%;
+  box-shadow: 0px 20px 40px #aaa;
+}
+
+.main .contenedor-slider .slider .slide img {
+  width: 100%;
+  vertical-align: top; /* vertical-align: top; es para eliminar el espacio por defecto que se crea abajo de las imagenes */
+}
+
+.main .contenedor-slider .btn-anterior,
+.main .contenedor-slider .btn-siguiente {
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Centramos los botones verticalmente */
+}
+
+.main .contenedor-slider .btn-anterior {
+  left: 2%;
+}
+
+.main .contenedor-slider .btn-siguiente {
+  right: 2%;
+}
+
+.main .contenedor-slider .btn-anterior i,
+.main .contenedor-slider .btn-siguiente i {
+  color: #fff;
+}
+
+.main .contenedor-slider .btn-anterior i:hover,
+.main .contenedor-slider .btn-siguiente i:hover {
+  color: #F5C567;
+}
+
+/* Nuestro equipo */
+.main .nuestro-equipo {
+  background-color: #f3f4fa;
+  padding-top: 54px;
+  padding-bottom: 108px;
+}
+
+.main .nuestro-equipo .equipo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.main .nuestro-equipo .equipo .persona-equipo {
+  background-color: #fff;
+  padding: 50px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0px 9px 32px -1px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.main .nuestro-equipo .equipo .persona-equipo:first-child,
+.main .nuestro-equipo .equipo .persona-equipo:last-child {
+  position: relative;
+  top: 20px; /* Le damos un top de 20px para que la primera y última tarjeta esten un poco más arriba */
+}
+
+.main .nuestro-equipo .equipo .persona-equipo .foto {
+  width: 50%;
+  max-width: 100px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.main .nuestro-equipo .equipo .persona-equipo .foto img {
+  width: 100%;
+  border-radius: 100%;
+}
+
+.main .nuestro-equipo .equipo .persona-equipo .texto h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #F5C567;
+}
+
+.main .nuestro-equipo .equipo .persona-equipo .texto h4 {
+  color: #979797;
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.main .nuestro-equipo .equipo .persona-equipo .texto p {
+  color: #979797;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+/* Seccion información extra */
+.main .info-extra {
+  background-color: #191919;
+  padding: 130px 0;
+}
+
+.main .info-extra .contenedor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.main .info-extra .contenedor .info {
+  width: 50%;
+}
+
+.main .info-extra .contenedor .info .contenido-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* Para que no se coloquen uno debajo del otro */
+  justify-content: center;
+}
+
+.main .info-extra .contenedor .info .contenido-info:first-child {
+  margin-bottom: 30px;
+}
+
+.main .info-extra .contenedor .info .contenido-info .icono-info {
+  width: 5%;
+}
+
+
+.main .info-extra .contenedor .info .contenido-info .texto-info {
+  margin-left: 3%;
+}
+
+.main .info-extra .contenedor .info .contenido-info .texto-info h4 {
+  font-size: 1.875rem;
+  line-height: 24px;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.main .info-extra .contenedor .info .contenido-info .texto-info p {
+  color: #979797;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.main .info-extra .contenedor .foto {
+  width: 50%;
+  height: 300px;
+  box-shadow: 0px 9px 32px -1px rgba(0, 0, 0, 0.5);
+  background-image: url("../img/nuestra-gente/imagen.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+/* Contacto */
+.main .contacto {
+  padding: 190px 0;
+  /* Comentamos el CSS ya que el plugin de parallax añade todas estas propiedades*/
+  background-image: url("../img/parallax/chichen-itza.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /*Efecto parallax con CSS*/ 
+}
+
+.main .contacto .contenedor-formulario {
+  background-color: #fff;
+  min-height: 485px;
+  border-radius: 3px;
+  box-shadow: 0px 9px 32px -1px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .contacto .contenedor-formulario .formulario {
+  width: 50%;
+  padding: 70px;
+}
+
+.main .contacto .contenedor-formulario .formulario h2 {
+  font-size: 1.375rem;
+  line-height: 24px;
+  color: #F5C567;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.main .contacto .contenedor-formulario .formulario p {
+  color: #979797;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.main .contacto .contenedor-formulario .formulario form input[type="text"],
+.main .contacto .contenedor-formulario .formulario form input[type="email"] {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  outline: none; /* Para quitar el focus por defecto que agrega Chrome y Edge */
+  width: 100%;
+  margin-bottom: 10px;
+  color: #979797;
+  font-weight: 400;
+  font-family: 'Roboto Slab', serif;
+  letter-spacing: 0.5px;
+}
+.main .contacto .contenedor-formulario .formulario form textarea {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  outline: none; /* Para quitar el focus por defecto que agrega Chrome y Edge */
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 88px;
+  min-height: 88px;
+  color: #979797;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-family: 'Roboto Slab', serif;
+  letter-spacing: 0;
+}
+
+.main .contacto .contenedor-formulario .formulario form input[type="submit"] {
+  width: 100%;
+  border: none;
+  border: 1px solid #F5C567;
+  padding: 8px;
+  background: #F5C567;
+  color: #fff;
+  font-size: 0.9rem;
+  font-family: 'Roboto Slab', serif;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.7s ease;
+}
+
+.main
+  .contacto
+  .contenedor-formulario
+  .formulario
+  form
+  input[type="submit"]:hover {
+  background: #fff;
+  color: #F5C567;
+}
+
+.main .contacto .contenedor-formulario .foto {
+  width: 50%;
+  background-image: url("../img/parallax/hands_writting.jpg");
+  background-size: cover;
+}
+
+/* Validación formulario */
+.main .contacto .contenedor-formulario .formulario form .error {
+  display: none;
+  color: #ff8c8c;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* --------- Pie de Página --------- */
+
+footer {
+  background-color: #f3f4fa;
+  padding: 54px 0;
+  text-align: center;
+}
+
+footer .copy {
+  color: #979797;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+footer .footer-redes a {
+  display: inline-block;
+  padding: 0 10px;
+  color: #979797;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  line-height: 1.5em;
+  transition: all 0.3s ease;
+}
+
+footer .footer-redes a:hover {
+  color: #F5C567;
+}
+
+/* ----- MEDIA QUERIES ----- */
+
+@media screen and (max-width: 1040px) {
+  /* Nuestro equipo */
+  .main .nuestro-equipo .titulo-seccion {
+    margin-bottom: 60px;
+  }
+
+  .main .nuestro-equipo .equipo .persona-equipo {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .main .nuestro-equipo .equipo .persona-equipo:first-child {
+    top: -20px;
+  }
+
+  .main .nuestro-equipo .equipo .persona-equipo .foto {
+    margin-right: 20px;
+  }
+
+  /* Sección información extra */
+  .main .info-extra .contenedor .info {
+    width: 100%;
+  }
+
+  .main .info-extra .contenedor .foto {
+    display: none;
+  }
+
+  
+}
+
+@media screen and (max-width: 900px) {
+  /* Encabezado */
+  .menu-bar-pc {
+    display: none;
+  }
+
+  .menu-mobile {
+    display: block;
+    width: 100%;
+    padding: 5px 18px;
+    background: #fff;
+    color: #444444;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+
+  .menu-mobile .barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-mobile .barra .logo {
+    width: 40px;
+  }
+
+  .menu-mobile .barra a i {
+    font-size: 1.4rem;
+    color: #444444;
+  }
+
+  .menu-mobile .menu-principal {
+    width: 80%;
+    display: block;
+    position: fixed;
+    top: 56px;
+    left: -100%;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+    border-right: 1px solid rgba(204, 204, 204, 0.5);
+    box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    text-align: center;
+  }
+
+  .menu-mobile .menu-principal a {
+    display: block;
+    padding: 10px;
+    color: #444444;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+  }
+
+  .menu-mobile .menu-principal a:hover {
+    background: #f7f7f7;
+  }
+
+  .fixed-header {
+    display: none;
+  }
+
+  /* Main */
+  .main {
+    margin-top: 0;
+  }
+
+  /* Acerca de */
+  .main .acerca-de .contenedor .titulo-seccion,
+  .main .acerca-de .contenedor .texto-acerca-de {
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Contacto */
+  .main .contacto .contenedor-formulario .formulario {
+    width: 100%;
+    text-align: center;
+  }
+
+  .main .contacto .contenedor-formulario .foto {
+    display: none;
+  }
+
+  .main .contacto .contenedor-formulario .formulario form input[type="text"],
+  .main .contacto .contenedor-formulario .formulario form input[type="email"],
+  .main .contacto .contenedor-formulario .formulario form textarea {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  /* Banner principal */
+  .main .banner-principal .texto-banner h1 {
+    font-size: 4rem;
+  }
+
+  /* Titulo secciones */
+  .titulo-seccion h2 {
+    font-size: 2.125rem;
+  }
+
+  /* Proyectos */
+  .main .proyectos .galeria-proyectos .proyecto {
+    width: 49%;
+  }
+
+  .main .proyectos .galeria-proyectos .proyecto:last-child {
+    margin: 0 auto;
+  }
+
+  /* Nuestro equipo */
+  .main .nuestro-equipo .equipo .persona-equipo {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Sección información extra */
+  .main .info-extra .contenedor .info .contenido-info {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .main .info-extra .contenedor .info .contenido-info .icono-info {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  .main .info-extra .contenedor .info .contenido-info .icono-info img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .main .info-extra .contenedor .info .contenido-info .texto-info {
+    margin-left: 0;
+  }
+
+  .main .info-extra .contenedor .info .contenido-info .texto-info h4 {
+    font-size: 1.175rem;
+  }
+
+  .main .info-extra .contenedor .info .contenido-info:first-child {
+    margin-bottom: 40px;
+  }
+
+  /* Contacto */
+  .main .contacto .contenedor-formulario .formulario {
+    padding: 70px 40px;
+  }
+}
